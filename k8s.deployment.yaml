@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kaholo-demo
+  labels:
+    app: kaholo-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kaholo-demo
+    spec:
+      containers:
+        - name: kaholo-demo
+          image: brunoscota/kaholo-demo:latest
+          ports:
+            - containerPort: 3000
+              name: kaholo-demo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kaholo-demo
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: kaholo-demo
