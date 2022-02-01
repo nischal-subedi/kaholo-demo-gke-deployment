@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kaholo-demo
@@ -17,6 +17,9 @@ spec:
           ports:
             - containerPort: 3000
               name: kaholo-demo
+  selector:
+    matchLabels:
+      app: kaholo-demo
 ---
 apiVersion: v1
 kind: Service
