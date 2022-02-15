@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: kaholo-demo
-          image: brunoscota/kaholo-demo:latest
+          image: nischal-subedi/kaholo-demo:latest
           ports:
             - containerPort: 3000
               name: kaholo-demo
